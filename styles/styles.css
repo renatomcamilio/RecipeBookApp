@@ -1,0 +1,26 @@
+
+span, p, h1, h2, h3, h4, h5, h6, textarea, div {
+    color: #333;
+}
+
+h1 > small,
+h2 > small,
+h3 > small,
+h4 > small,
+h5 > small,
+h6 > small {
+    color: #999;
+    font-size: 0.5em;
+}
+
+
+h2.section {
+    border-bottom: 1px solid #333;
+}
+
+.recipe-card {
+    border: 1px solid #333;
+    border-radius: 4px;
+    margin: 2px;
+    padding: 4px;
+}
