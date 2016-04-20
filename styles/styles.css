@@ -13,9 +13,23 @@ h6 > small {
     font-size: 0.5em;
 }
 
+textarea {
+    resize: none !important;
+}
+
+.pure-form-stacked .pure-button {
+    display: block;
+    margin: .25em 0;
+    border: 1px solid transparent;
+}
 
 h2.section {
     border-bottom: 1px solid #333;
+}
+
+.pure-button-success {
+    background-color: rgb(28, 184, 65);
+    color: #fff;
 }
 
 .recipe-card {
@@ -24,3 +38,24 @@ h2.section {
     margin: 2px;
     padding: 4px;
 }
+
+/**
+ * Responsiveness
+ */
+
+@media only screen and (max-width: 480px) {
+    .pure-form button[type=submit] {
+        margin: 0;
+    }
+
+    h1 > small,
+    h2 > small,
+    h3 > small,
+    h4 > small,
+    h5 > small,
+    h6 > small {
+        display: block;
+        width: 100%;
+    }
+}
+
