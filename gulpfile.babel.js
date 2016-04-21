@@ -10,6 +10,7 @@ import uglify from 'gulp-uglify';
 import rimraf from 'rimraf';
 import notify from 'gulp-notify';
 import browserSync, { reload } from 'browser-sync';
+import historyApiFallback from 'connect-history-api-fallback';
 import sourcemaps from 'gulp-sourcemaps';
 import postcss from 'gulp-postcss';
 import rename from 'gulp-rename';
@@ -25,7 +26,7 @@ import ghPages from 'gulp-gh-pages';
 
 const paths = {
   bundle: 'app.js',
-  entry: 'src/Index.js',
+  entry: 'src/index.js',
   srcCss: 'src/**/*.scss',
   srcImg: 'src/images/**',
   srcLint: ['src/**/*.js', 'test/**/*.js'],
@@ -51,8 +52,10 @@ gulp.task('clean', cb => {
 gulp.task('browserSync', () => {
   browserSync({
     server: {
-      baseDir: './'
-    }
+      baseDir: './',
+      middleware: [ historyApiFallback() ]
+    },
+    open: false
   });
 });
 
@@ -130,7 +133,7 @@ gulp.task('deploy', () => {
 });
 
 gulp.task('watch', cb => {
-  runSequence('clean', ['browserSync', 'watchTask', 'watchify', 'styles', 'lint', 'images'], cb);
+  runSequence('clean', ['browserSync', 'watchTask', 'watchify', 'styles'/*, 'lint'*/, 'images'], cb);
 });
 
 gulp.task('build', cb => {

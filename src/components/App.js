@@ -1,20 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router';
-import { version } from '../../package.json';
+import Home from '../pages/Home';
 
-const App = ({ children }) => (
-  <div>
-    <header>
-      <h1>React Starterify {version}</h1>
-      <Link to="/about">About</Link>
-      <Link to="/poweredby">Powered by</Link>
-    </header>
-    <section>
-      {children || 'Welcome to React Starterify'}
-    </section>
+const App = () => (
+  <div className="pure-g">
+    <div className="pure-u-2-24 pure-u-lg-4-24"></div>
+    <div className="pure-u-20-24 pure-u-lg-16-24">
+      <Home />
+    </div>
+    <div className="pure-u-2-24 pure-u-lg-4-24"></div>
   </div>
 );
 
-App.propTypes = { children: React.PropTypes.object };
+App.propTypes = {
+  children: React.PropTypes.node
+};
 
 export default App;
